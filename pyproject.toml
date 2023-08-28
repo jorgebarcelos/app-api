@@ -1,0 +1,17 @@
+[tool.poetry]
+name = ""
+version = "0.1.0"
+description = "Web app api with django ninja and alpine js"
+authors = ["jorgebarcelos <jorgebarcelos.faria@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "4.2.4"
+django-ninja = "^0.22.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

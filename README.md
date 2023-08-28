@@ -1,0 +1,1 @@
+Web app API with django ninja and AlpineJS
