@@ -1,17 +1,18 @@
-from ninja import NinjaAPI, ModelSchema
+from ninja import ModelSchema, Router
+from typing import List
 from .models import Customer
 
 
-api = NinjaAPI()
+router = Router()
 
 
 class CustomerSchema(ModelSchema):
     class Config:
         model = Customer
-        model_fields = '__all__'
+        model_fields = "__all__"
 
 
-@api.get('/home')
+@router.get('customer')
 def home(request):
     customers = Customer.objects.all()
     response = [
@@ -26,9 +27,7 @@ def home(request):
     return response
 
 
-@api.post('customer', response=CustomerSchema)
+@router.post('customer', response=CustomerSchema)
 def post_customer(request, customer: CustomerSchema):
-    payload = customer.dict()
-    customer = Customer(**payload)
-    customer.save()
-    return customer
+    payload = Customer.objects.create(**customer.dict())
+    return payload

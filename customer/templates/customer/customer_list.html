@@ -1,0 +1,24 @@
+{% extends 'customer/base.html' %}
+
+{% block customer_list %}
+    <h1>Customer List View</h1>
+        <div x-data="getCustomers">
+            <h1>Lista de clientes</h1>
+
+            <table>
+                <thead>
+                    <tr>Nome</tr>
+                    <tr>Cnpj</tr>
+                </thead>
+
+                <tbody>
+                    <template x-for="item in items" :key="item.id">
+                        <tr>
+                            <td x-text="item.name"></td>
+                            <td x-text="item.cnpj"></td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+{% endblock customer_list %}
